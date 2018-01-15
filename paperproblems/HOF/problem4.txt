@@ -13,3 +13,25 @@ function f(g, h) {
 }
 
 console.log(f(k, m));
+
+
+
+
+
+
+
+MY WORK:
+
+function m(3) {
+    return 3 * 2; = 6
+}
+
+function k(m, 1, 4) {
+    return m() + 4 * 2; = 14
+}
+
+function f(k, m) {
+    return k(m, 1, 4);
+}
+
+console.log(f(k, m));

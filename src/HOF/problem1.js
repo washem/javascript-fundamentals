@@ -1,5 +1,16 @@
 
 function callNoException(f, arg) {
+    function f(arg) {
+        if (arg == 0) throw new Error("woops");
+    }
+    try {
+        f(arg);
+    } catch (error) {
+        return null;
+    }
+    if (arg != 0) return arg;
+
+
     // if f(arg) throws an exception, return null
     // otherwise return what f(arg) returned
     // Example:
@@ -12,6 +23,12 @@ function callNoException(f, arg) {
 }
 
 function callNoNull(f, arg) {
+    function f(arg) {
+        if (arg == 0) return null;
+    }
+    if (arg == 0) throw new Error("woops!");
+        return arg;
+
     // if f(arg) returns null, throw an exception
     // otherwise return what f(arg) returned  
     // Example: 
@@ -21,11 +38,19 @@ function callNoNull(f, arg) {
     //  }
     // callNoNull(nullZero, 0) throws an exception
     // callNoNull(nullZero, 12) returns 12
-    
-    
+
+
 }
 
 function exceptionalize(f) {
+    function g(f) {
+        if (arg == 0) throw new Error("woops!");
+    }
+    function f(arg) {
+        if (arg == 0) return null;
+        return f(arg);
+    }
+    
     // returns a new function
     // this function takes 1 input, called arg
     // if f(arg) is null, this new function throws an exception
@@ -43,6 +68,15 @@ function exceptionalize(f) {
 }
 
 function nullify(f) {
+    function g(arg) {
+        try {
+            return f(arg);
+        } catch(err)    {
+            return null
+        }
+    }
+    return g;
+
     // returns a new function
     // this function takes 1 input, called arg
     // if f(arg) throws an exception, this new function returns null
@@ -55,7 +89,7 @@ function nullify(f) {
     //  nullify(throwsZero) returns a function g such that
     //  g(0) returns null
     //  g(12) throws an exception
-    
+
 }
 
 function map(lst, f) {
@@ -89,7 +123,7 @@ function every(lst, f) {
     // lst is an array and f is a function
     // f takes 1 arguments and returns a boolean
     // filter(lst, f) returns a true if f returns true for every element of lst
-    
+
     // Example
     // every([2,4,12], x => x % 2 == 0) returns true
     // every([2,3,12], x => x % 2 == 0) returns false    
@@ -97,11 +131,11 @@ function every(lst, f) {
 
 
 module.exports = {
-    callNoException, 
+    callNoException,
     callNoNull,
-    exceptionalize, 
+    exceptionalize,
     nullify,
-    map, 
-    filter, 
+    map,
+    filter,
     every
 };
