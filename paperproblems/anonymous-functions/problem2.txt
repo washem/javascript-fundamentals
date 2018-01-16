@@ -12,3 +12,8 @@ function call(f) {
 }
 
 call(greet);
+
+
+
+answer///////
+(function(f){f("bob")})  (function(x){console.log("hello " + x)})

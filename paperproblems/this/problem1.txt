@@ -6,6 +6,11 @@ function foo() {
     console.log(this.baz);
 }
 
-var obj = {bar: foo, baz: 8};
+var obj =   {   bar: foo, 
+                baz: 8
+            };
+
 obj.bar();
 
+
+answer= 8

@@ -1,9 +1,12 @@
-var bob = {name: "Bob"};
+//
+//
+var bob = { name: "Bob"};
 function greet() {
     return "I'm " + this.name;
 }
-bob.greeting = greet;
-bob.greeting = bob.greeting.bind(greet);
+
+greet = greet.bind(bob);
+
 // bind greet to bob
-console.log(bob);
+
 module.exports = greet;
